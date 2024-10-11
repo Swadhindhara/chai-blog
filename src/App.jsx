@@ -1,10 +1,30 @@
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import authService from './appwrite/auth'
+import {login, logout} from './store/authSlice'
+
 function App() {
 
-  return (
-    <>
-      swadhin
-    </>
-  )
+  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    authService.currentUser()
+    .then(
+      (userData) => {
+        if (userData) {
+          dispatch(login({userData}))
+        } else {
+          dispatch(logout())
+        }
+      }
+    )
+    .finally(() => setLoading(false))
+  }, [])
+  
+  return !loading ? (
+    <div className="min-h-screen flex"></div>
+  ) : null
 }
 
 export default App
