@@ -44,7 +44,7 @@ export class AuthService {
     try {
         return await this.account.get();
     } catch (error) {
-        throw new Error("current user", error);   
+        throw new Error("App current user", error);   
     }
     // finally{
     //     return null;
