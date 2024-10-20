@@ -3,7 +3,7 @@ import Footer  from "./footer/Footer";
 import Container from './container/Container'
 import LogoutBtn from "./Header/LogoutBtn";
 import Button from "./Button";
-import Input from "./input";
+import Input from "./Input";
 import AuthLayout from "./AuthLayout";
 import RTE from "./RTE";
 import Signup from './Signup';
